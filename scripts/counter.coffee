@@ -37,7 +37,8 @@ module.exports = (robot) ->
   console.log("counter!")
   robot.respond /count (.*)/i, (msg) ->
     countPhrase = msg.match[1]
-    counts[countPhrase] = counts[countPhrase] || 0
+    #-1 here is to offset counting the first one
+    counts[countPhrase] = counts[countPhrase] || -1
     msg.send "Now counting #{countPhrase}"
 
   robot.respond /stop counting (.*)/i, (msg) ->
@@ -47,12 +48,12 @@ module.exports = (robot) ->
 
   robot.hear /(.*)/i, (msg) ->
     for key of counts
-      if msg.match[1].indexOf key >= 0
+      if msg.match[1].indexOf(key) >= 0
         counts[key] += 1
 
   robot.respond /how many (.*)$/i, (msg) ->
     countPhrase = msg.match[1]
-    if counts[countPhrase] == null
+    if counts[countPhrase] == undefined
       msg.send "Not counting #{countPhrase}"
     else
       #offset the count for this message
