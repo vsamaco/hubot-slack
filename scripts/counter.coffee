@@ -49,7 +49,7 @@ module.exports = (robot) ->
 
   robot.hear /(.*)/i, (msg) ->
     for key of counts
-      if msg.match[1] == key
+      if msg.match[1].indexOf key >= 0
         counts[key] += 1
 
   robot.respond /how many (.*)$/i, (msg) ->
@@ -57,4 +57,6 @@ module.exports = (robot) ->
     if counts[countPhrase] == null
       msg.send "Not counting #{countPhrase}"
     else
+      #offset the count for this message
+      counts[countPhrase] -= 1
       msg.send "#{countPhrase} counted #{counts[countPhrase]} times"
