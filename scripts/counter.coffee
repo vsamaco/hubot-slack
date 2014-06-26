@@ -5,11 +5,7 @@
 #   hubot count <word or phrase> - Starts tracking the given word or phrase
 #   hubot stop counting <word or phrase> - Stops tracking the given word or phrase
 #   hubot how many <word or phrase> - outputs how many times the word or phrase has been seen by hubot
-#
-# Events:
-#   debug - {user: <user object to send message to>}
 
-util = require 'util'
 getDateTime = -> 
   date = new Date()
 
