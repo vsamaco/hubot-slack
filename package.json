@@ -27,7 +27,8 @@
     "underscore": "~1.6.0", 
     "flip": "~0.1.0",
     "jsdom": "~0.10.6",
-    "hubot-calculator": ">= 0.2.0"
+    "hubot-calculator": ">= 0.2.0",
+    "hubot-quote": "~3.0.0"
   },
   "engines": {
     "node": ">= 0.8.x",
