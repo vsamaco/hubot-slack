@@ -1,3 +1,9 @@
+# Description:
+#   Excuses
+#
+# Commands:
+#   hubot why <excuse>? - Response with random coding excuse
+#
 
 module.exports = (robot) ->
   robot.respond /why (.*)\?$/i, (msg)->
